@@ -2,16 +2,9 @@
   grid-area: header;
   height: var(--header-footer-height);
   background: var(--color-main-dark);
-  padding: 0 15px;
 }
 
-/* .container {
-  max-width: 1235px;
-  margin: 0 auto;
-} */
-
 .header__title {
-  /* margin-left: 15px; */
   font-size: 28px;
   line-height: 55px;
   font-weight: 100;

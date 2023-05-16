@@ -11,19 +11,21 @@ function UserMenu() {
   const toggleMenu = () => setIsOpenMenu(!isOpenMenu);
 
   return (
-    <div className={css.wrapper}>
-      <UserAvatar />
-      <span className={css.arrow} onClick={toggleMenu}>
-        {isOpenMenu ? <ArrowUp /> : <ArrowDown />}
-      </span>
-
-      {isOpenMenu && <div className={css.menu}>
-                <div>Profile</div>
-                <div>Log Out</div>
-        </div>
+    <div className={css.userMenu}>
+      <div className={css.userMenu__wrapper} onClick={toggleMenu}>
+        <UserAvatar />
+        <span className={css.arrow}>
+          {isOpenMenu ? <ArrowUp /> : <ArrowDown />}
+        </span>
+      </div>
+      {isOpenMenu && 
+          <div className={css.menu}>
+                  <div className={css.menu__item}>Profile</div>
+                  <div className={css.menu__item}>Log Out</div>
+          </div>
       }
-
     </div>
+    
   )
 }
 

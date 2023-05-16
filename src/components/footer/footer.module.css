@@ -1,10 +1,27 @@
 .footer {
   grid-area: footer;
+  flex-direction: row;
   background: #0067A3;
-  height: 55px;
+  height: var(--header-footer-height);
+
+  color: var(--color-light);
+  font-size: 18px;
+  line-height: 21px;
 }
 
-/* .container {
-max-width: 1235px;
-margin: 0 auto;
-} */
+.footer__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--header-footer-height);
+}
+
+.footer__result {
+  display: flex;
+  justify-content: space-between;
+  width: 270px;
+}
+
+.footer__info {
+  width: 345px;
+}
