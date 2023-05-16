@@ -1,0 +1,43 @@
+.wrapper {
+  width: 64px;
+  height: 40px;
+}
+
+.arrow {
+  cursor: pointer;
+  transition: all .5s;
+}
+
+.arrow:hover {
+  opacity: .8;
+}
+
+.menu {
+  position: relative;
+  width: 134px;
+  height: 60px;
+  padding: 5px;
+  margin-top: 5px;
+  margin-left: -70px;
+  background: var(--color-light);
+  border-radius: 5px;
+}
+
+.menu:before {
+  position: absolute;
+  content: '';
+  border: 8px solid transparent;
+  border-bottom: 8px solid var(--color-light);
+  left: 61%;
+  top: -16px;
+}
+
+.menu, .menu:before {
+  opacity: 0;
+  animation: menu .3s forwards;
+}
+
+@keyframes menu {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}

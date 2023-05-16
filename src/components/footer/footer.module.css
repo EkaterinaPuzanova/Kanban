@@ -1,0 +1,10 @@
+.footer {
+  grid-area: footer;
+  background: #0067A3;
+  height: 55px;
+}
+
+/* .container {
+max-width: 1235px;
+margin: 0 auto;
+} */

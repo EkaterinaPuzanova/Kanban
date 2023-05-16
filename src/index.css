@@ -6,6 +6,17 @@
   font-style: normal;
 }
 
+:root {
+  --color-main-dark: #0067A3;
+  --color-main-light: #0079BF;
+  --color-light: #FFFFFF;
+  --color-theme1: #EBECF0;
+  --color-theme2: #CBCBCB;
+  --color-theme3: #5E6C84;
+
+  --header-footer-height: 55px;
+}
+
 html {
 	scroll-behavior: smooth;
   overflow-x: hidden;
@@ -19,8 +30,4 @@ html {
 
 body {
   font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  background-color: var(--color-dark);
-  color:var(--color-light);
 }

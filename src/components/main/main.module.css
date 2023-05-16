@@ -1,0 +1,11 @@
+.main {
+  grid-area: main;
+  background: var(--color-main-light);
+}
+
+.container {
+  /* max-width: 1235px;
+  margin: 0 auto; */
+  display: grid;
+  grid-template-columns: repeat(4, 25vw);
+}
