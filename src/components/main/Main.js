@@ -8,7 +8,13 @@ function Main(props) {
       <div className='container'>
         <div className={css.main__wrapper}>
           {props.taskStatuses.map((status) => (
-            <Columns key={status} status={status} tasks={props.tasks} onCreateTask={props.addCard}/>
+            <Columns
+              key={status}
+              status={status}
+              tasks={props.tasks}
+              onCreateTask={props.addCard}
+              statuses={props.taskStatuses}
+              onStatusChange={props.onStatusChange} />
           ))}
         </div>
       </div>

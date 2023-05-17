@@ -27,11 +27,15 @@ function App() {
   const addNewCard = (task) => {
     setTasks([...tasks, {...task, id: Math.random(), status: 'backlog'}])
   }
+
+  const onStatusChange = (id, newStatus) => {
+    setTasks(tasks.map((task) => (Number(task.id) === Number(id)) ? {...task, status: newStatus} : task));
+  }
   
   return (
     <div className="App">
       <Header />
-      <Main tasks={tasks} taskStatuses={taskStatuses} addCard={addNewCard}/>
+      <Main tasks={tasks} taskStatuses={taskStatuses} addCard={addNewCard} onStatusChange={onStatusChange} />
       <Footer />
     </div>
   );

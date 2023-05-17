@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import css from './columns.module.css';
-import AddCard from './addCard/AddCard';
 
 function Columns(props) {
 
-  const [isOpenAddcard, setIsOpenAddCard] = useState(false);
+  const [isOpenAddCard, setIsOpenAddCard] = useState(false);
+  const [title, setTitle] = useState('');
 
   const openAddCard = () => {
     setIsOpenAddCard(true);
@@ -12,6 +12,25 @@ function Columns(props) {
 
   const closeAddCard = () => {
     setIsOpenAddCard(false);
+  }
+
+  const onChange = (e) => {
+    setTitle(e.target.value);
+  }
+
+  const onSubmit = () => {
+    if (title === '') {
+      closeAddCard()
+      return
+    }
+    setTitle('');
+    props.onCreateTask({title});
+    closeAddCard();
+  }
+
+  const onChangeSelect = (id, newStatus) => {
+    props.onStatusChange(id, newStatus);
+    closeAddCard();
   }
   
   return (
@@ -27,8 +46,28 @@ function Columns(props) {
             </div>
           ))
         }
-        {isOpenAddcard && <AddCard onSubmit={props.onCreateTask} closeAddCard={closeAddCard}/>}
-        <button className={css.button} onClick={openAddCard}>+ Add card</button>
+
+        {isOpenAddCard && (props.status === 'backlog') &&
+            <input className={css.input} type='text' value={title} onChange={(e) => onChange(e)}></input>
+        }
+
+        {isOpenAddCard && (props.status !== 'backlog') &&
+            <select className={css.select}  onChange={(e) => onChangeSelect(e.target.value, props.status)}>
+                <option style={{display: 'none'}}></option>
+                {props.tasks
+                    .filter((task) => task.status === props.statuses[props.statuses.indexOf(props.status) - 1])
+                    .map((task) => (
+                        <option className={css.task} key={task.id} value={task.id}>{task.title}</option> /////////////////
+                ))}
+            </select>
+        }
+
+        <button 
+              className={isOpenAddCard ? `${css.button} ${css.buttonSubmit}` : css.button}
+              style={(isOpenAddCard && (props.status !== 'backlog')) ? {display: 'none'} : {}}
+              onClick={isOpenAddCard ? onSubmit : openAddCard}>
+              {isOpenAddCard ? 'Submit' : '+ Add card'}
+        </button>
       </div>      
 
     </div>
