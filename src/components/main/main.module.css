@@ -3,7 +3,7 @@
   background: var(--color-main-light);
 }
 
-.container {
+.main__wrapper {
   display: grid;
-  grid-template-columns: repeat(4, 25vw);
+  grid-template-columns: repeat(4, 25%);
 }

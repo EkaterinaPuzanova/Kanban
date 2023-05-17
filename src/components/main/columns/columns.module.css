@@ -1,0 +1,42 @@
+.column {
+  padding: 20px 0;
+}
+
+.column__item {
+  width: 282px;
+  background: var(--color-theme1);
+  border-radius: 10px;
+  padding: 12px 12px 7px 12px;
+}
+
+.column__title,
+.task__title,
+.button {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.task {
+  margin: 7px 0;
+  background: var(--color-light);
+  border-radius: 3px;
+  padding: 7px;
+}
+
+.button {
+  border: none;
+  color: var(--color-theme3);
+  margin-top: 10px;
+}
+
+.task,
+.button {
+  transition: all .5s;
+}
+
+.button:hover,
+.task:hover {
+  opacity: .6;
+  cursor: pointer;
+}

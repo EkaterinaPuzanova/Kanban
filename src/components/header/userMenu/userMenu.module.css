@@ -9,7 +9,7 @@
 
 .userMenu__wrapper:hover,
 .menu__item:hover {
-  opacity: .8;
+  opacity: .7;
   cursor: pointer;
 }
 
