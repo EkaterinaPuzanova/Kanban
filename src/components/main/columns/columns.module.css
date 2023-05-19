@@ -28,6 +28,10 @@
   padding: 7px;
 }
 
+.task {
+  will-change: transform;
+}
+
 .input,
 .select {
   margin-top: 0px;
@@ -67,7 +71,7 @@
 }
 
 .task:hover {
-  opacity: .6;
+  transform: scale(1.05);
 }
 
 .button:hover {

@@ -1,4 +1,6 @@
 .userMenu{
+    position: relative;
+    z-index: 7;
     width: 64px;
     height: 40px;
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import css from './columns.module.css';
+import { Link } from 'react-router-dom';
 
 function Columns(props) {
 
@@ -41,9 +42,11 @@ function Columns(props) {
         {props.tasks
           .filter((task) => task.status === props.status)
           .map((task) => (
-            <div className={css.task} key={task.id}>
-              <p className={css.task__title}>{task.title}</p>
-            </div>
+            <Link to={`/tasks/:${task.id}`} style={{color: 'black', textDecoration: 'none'}}>
+              <div className={css.task} key={task.id}>
+                <p className={css.task__title}>{task.title}</p>
+              </div>
+            </Link>
           ))
         }
 
