@@ -12,7 +12,6 @@
 .tasks {
   width: 100%;
   margin: 8px 0;
-  padding: 0 .3vw;
   max-height: calc(100vh - 2 * var(--header-footer-height) - 50px - 28vh);;
   overflow: auto;
 }
@@ -20,16 +19,14 @@
 .column__title,
 .task__title,
 .button,
-.input,
-.select {
+.input {
   font-weight: 400;
   font-size: 18px;
   line-height: 21px;
 }
 
 .task,
-.input,
-.select {
+.input {
   margin: 7px 0;
   background: var(--color-light);
   border-radius: 3px;
@@ -41,8 +38,7 @@
   overflow: auto;
 }
 
-.input,
-.select {
+.input {
   margin-top: 0px;
   width: 100%;
   border: none;
@@ -81,7 +77,8 @@
 }
 
 .task:hover {
-  transform: scale(1.03);
+  opacity: .5;
+  background: var(--color-theme2);
 }
 
 .button:hover {
@@ -111,4 +108,20 @@
 .task::-webkit-scrollbar-thumb {
   background-color: var(--color-theme2);  
   border-radius: 60px;
+}
+
+
+@media (max-width: 700px) {
+  .column__item {
+    width: 100%;
+  }
+}
+
+@media (max-width: 550px) {
+  .column__title,
+  .task__title,
+  .button,
+  .input {
+    font-size: 15px;
+  }
 }

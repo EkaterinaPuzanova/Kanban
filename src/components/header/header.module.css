@@ -16,3 +16,20 @@
   align-items: center;
   justify-content: space-between;
 }
+
+@media (max-width: 700px) {
+  .header__title {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 550px) {
+  .header {
+    height: 100px;
+    background: var(--color-main-light);
+  }
+  .header__title {
+    color: var(--color-main-light);
+    font-size: 10px;
+  }
+}

@@ -11,8 +11,8 @@ function UserMenu() {
   const toggleMenu = () => setIsOpenMenu(!isOpenMenu);
 
   return (
-    <div className={css.userMenu}>
-      <div className={css.userMenu__wrapper} onClick={toggleMenu}>
+    <div className={css['user-menu']}>
+      <div className={css['user-menu__wrapper']} onClick={toggleMenu}>
         <UserAvatar />
         <span className={css.arrow}>
           {isOpenMenu ? <ArrowUp /> : <ArrowDown />}
@@ -20,8 +20,8 @@ function UserMenu() {
       </div>
       {isOpenMenu && 
           <ul className={css.menu}>
-                  <li className={css.menu__item}>Profile</li>
-                  <li className={css.menu__item}>Log Out</li>
+            <li className={css.menu__item}>Profile</li>
+            <li className={css.menu__item}>Log Out</li>
           </ul>
       }
     </div>

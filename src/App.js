@@ -10,21 +10,12 @@ import {
 } from 'react-router-dom';
 import Card from './components/main/card/Card';
 
+
+
 const taskStatuses = ['backlog', 'ready', 'progress', 'finished'];
 
-const initialTasks = [
-      //   {id: 1, title: 'Task 1', status: 'backlog', description: 
-      //   'Это был темный лес, издали казавшийся непроходимым. Там Пахапиль охотился, глушил рыбу, спал на еловых ветках. Короче – жил, пока русские не выгнали оккупантов. А когда немцы ушли, Пахапиль вернулся. Он появился в Раквере, где советский капитан наградил его медалью. Медаль была украшена четырьмя непонятными словами, фигурой и восклицательным знаком.'
-      // },
-      //   {id: 2, title: 'Task 2', status: 'ready', description: 'hello'},
-      //   {id: 3, title: 'Task 3', status: 'progress', description: 'hello'},
-      //   {id: 4, title: 'Task 4', status: 'finished', description: 'hello'},
-      //   {id: 5, title: 'Task 5', status: 'backlog', description: 'hello'},
-      //   {id: 6, title: 'Task 6', status: 'progress', description: 'hello'},
-      //   {id: 7, title: 'Task 7', status: 'finished', description: 'hello'},
-      //   {id: 8, title: 'Task 8', status: 'backlog', description: 'hello'},
-      //   {id: 9, title: 'Task 9', status: 'ready', description: 'hello'},
-]
+const initialTasks = [];
+
 
 function App() {
 
@@ -35,15 +26,15 @@ function App() {
     if (isLoaded) {
         localStorage.setItem('tasks', JSON.stringify(tasks))
     }
-}, [tasks, isLoaded])
+  }, [tasks, isLoaded])
 
-useEffect(() => {
+  useEffect(() => {
     const tasks = localStorage.getItem('tasks');
     if (tasks) {
-        setTasks(JSON.parse(tasks))
+      setTasks(JSON.parse(tasks))
     }
     setIsLoaded(true);
-}, [])
+  }, [])
 
   const addNewCard = (task) => {
     setTasks([...tasks, {...task, id: Math.random(), status: 'backlog', description: 'This task has no description'}])
@@ -56,18 +47,18 @@ useEffect(() => {
   const changeDescriptionCard = (id, newDescription) => {
     setTasks(tasks.map((task) => (Number(task.id) === Number(id)) ? {...task, description: newDescription} : task));
   }
-
-  const arr = tasks.map((el) => ({
-    path: `/tasks/:${el.id}`,
-    element: <Card cards={tasks} changeDescriptionCard={changeDescriptionCard}/>
-  }))
   
   const router = createBrowserRouter([
     {
       path: '/',
       element: <Main tasks={tasks} taskStatuses={taskStatuses} addCard={addNewCard} onStatusChange={onStatusChange} />
     }]
-    .concat(arr)
+    .concat(
+      tasks.map((el) => ({
+        path: `/tasks/:${el.id}`,
+        element: <Card cards={tasks} changeDescriptionCard={changeDescriptionCard}/>
+      }))
+    )
   )
 
   return (

@@ -1,9 +1,17 @@
 .main {
   grid-area: main;
   background: var(--color-main-light);
+  min-height: calc(100vh - 2 * var(--header-footer-height));;
 }
 
 .main__wrapper {
   display: grid;
   grid-template-columns: repeat(4, 25%);
+}
+
+@media (max-width: 700px) {
+  .main__wrapper {
+    display: grid;
+    grid-template-columns: 100%;
+  }
 }

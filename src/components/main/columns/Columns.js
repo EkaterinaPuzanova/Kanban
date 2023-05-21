@@ -37,6 +37,7 @@ function Columns(props) {
 
   const arrTasksPreviousColumn = props.tasks
             .filter((task) => task.status === props.statuses[props.statuses.indexOf(props.status) - 1]);
+            
   const options = arrTasksPreviousColumn.map((task) => ({value: task.title, label: task.title, id: task.id}));
 
   return (
@@ -53,7 +54,7 @@ function Columns(props) {
           {props.tasks
             .filter((task) => task.status === props.status)
             .map((task) => (
-              <Link to={`/tasks/:${task.id}`} style={{color: 'black', textDecoration: 'none'}}>
+              <Link to={`/tasks/:${task.id}`} style={{color: 'black', textDecoration: 'none'}} key={task.id}>
                 <div className={css.task} key={task.id}>
                   <p className={css.task__title}>{task.title}</p>
                 </div>
@@ -66,16 +67,8 @@ function Columns(props) {
         {isOpenAddCard && (props.status === 'backlog') &&
             <input className={css.input} type='text' value={title} onChange={(e) => onChange(e)}></input>
         }
-
-        {/* const option = arrTasksPreviousColumn.map((task) => ({value: {task.title}, label: {task.id}})) */}
         
         {isOpenAddCard && (props.status !== 'backlog') &&
-            // <select className={css.select} onChange={(e) => onChangeSelect(e.target.value, props.status) }>
-            //     <option style={{display: 'none'}}></option>
-            //     {arrTasksPreviousColumn.map((task) => (
-            //             <option className={css.task} key={task.id} value={task.id}>{task.title}</option> /////////////////
-            //     ))}
-            // </select>
           
             <Select options={options}
                 styles={{

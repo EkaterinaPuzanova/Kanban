@@ -1,4 +1,4 @@
-.userMenu{
+.user-menu{
     position: relative;
     z-index: 7;
     width: 64px;
@@ -9,7 +9,11 @@
   transition: all .5s;
 }
 
-.userMenu__wrapper:hover,
+.menu__item {
+  list-style-type: none;
+}
+
+.user-menu__wrapper:hover,
 .menu__item:hover {
   opacity: .7;
   cursor: pointer;

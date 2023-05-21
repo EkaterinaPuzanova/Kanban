@@ -65,3 +65,22 @@
   background-color: var(--color-theme2);  
   border-radius: 60px;
 }
+
+@media (max-width: 700px) {
+  .card__wrapper {
+    width: auto;
+    height: auto;
+  }
+  .description {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 550px) {
+  .card__title {
+    font-size: 18px;
+  }
+  .description {
+    font-size: 15px;
+  }
+}
