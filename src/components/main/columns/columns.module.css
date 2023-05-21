@@ -9,6 +9,14 @@
   padding: 12px 12px 7px 12px;
 }
 
+.tasks {
+  width: 100%;
+  margin: 8px 0;
+  padding: 0 .3vw;
+  max-height: calc(100vh - 2 * var(--header-footer-height) - 50px - 28vh);;
+  overflow: auto;
+}
+
 .column__title,
 .task__title,
 .button,
@@ -30,6 +38,7 @@
 
 .task {
   will-change: transform;
+  overflow: auto;
 }
 
 .input,
@@ -46,6 +55,7 @@
   background: var(--color-theme1);
   margin-top: 10px;
   padding: 3px;
+  transition: all .3s;
 }
 
 .buttonSubmit {
@@ -71,9 +81,34 @@
 }
 
 .task:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .button:hover {
   background: var(--color-light);
+}
+
+.button:disabled {
+  opacity: .7;
+  cursor: auto;
+  background: var(--color-theme1);
+}
+
+.tasks::-webkit-scrollbar {
+  width: 12px;
+}
+
+.task::-webkit-scrollbar {
+  height: 10px;
+}
+
+.tasks::-webkit-scrollbar-track,
+.task::-webkit-scrollbar-track {
+  background: var(--color-light);
+}
+
+.tasks::-webkit-scrollbar-thumb,
+.task::-webkit-scrollbar-thumb {
+  background-color: var(--color-theme2);  
+  border-radius: 60px;
 }

@@ -24,28 +24,44 @@
   resize: none;
   font: inherit;
   border: none;
-  padding: 5px 0;
+  padding: 5px;
   margin-top: 30px;
 
   font-weight: 400;
   font-size: 18px;
   line-height: 21px;
+
+  overflow: auto;
 }
 
 .button {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 30px;
-  height: 30px;
+  width: 22px;
+  height: 22px;
   background: var(--color-light);
   border: none;
-  border-radius: 3px;
+  border-radius: 50%;
   transition: all .3s;
   font-size: 20px;
+  cursor: pointer;
 }
 
 .button:hover {
-  /* opacity: .7; */
+  opacity: .7;
   background: var(--color-main-light);
+}
+
+.description::-webkit-scrollbar {
+  width: 12px;
+}
+
+.description::-webkit-scrollbar-track {
+  background: var(--color-light);
+}
+
+.description::-webkit-scrollbar-thumb {
+  background-color: var(--color-theme2);  
+  border-radius: 60px;
 }

@@ -19,10 +19,10 @@ function UserMenu() {
         </span>
       </div>
       {isOpenMenu && 
-          <div className={css.menu}>
-                  <div className={css.menu__item}>Profile</div>
-                  <div className={css.menu__item}>Log Out</div>
-          </div>
+          <ul className={css.menu}>
+                  <li className={css.menu__item}>Profile</li>
+                  <li className={css.menu__item}>Log Out</li>
+          </ul>
       }
     </div>
     
