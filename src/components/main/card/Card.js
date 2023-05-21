@@ -21,7 +21,7 @@ function Card(props) {
 
           <p className={css.card__title}>{card.title}</p>
           
-          <textarea className={css.description} ref={ref}>
+          <textarea className={css.description} ref={ref} >
             {card.description}
           </textarea>
           

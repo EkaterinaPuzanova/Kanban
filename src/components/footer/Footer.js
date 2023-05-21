@@ -4,7 +4,7 @@ import css from './footer.module.css';
 function Footer(props) {
 
   const finishedTasks = props.tasks.filter((task) => task.status === 'finished').length;
-  const activeTasks = props.tasks.length - finishedTasks;
+  const activeTasks = props.tasks.filter((task) => task.status === 'backlog').length;
 
   return (
       <footer className={css.footer}>
